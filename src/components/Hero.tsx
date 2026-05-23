@@ -92,15 +92,17 @@ export default function Hero() {
                 </span>
               </div>
             </div>
+          </div>
 
-            <h1 className="animate-fade-in-d1 font-light text-[clamp(44px,8vw,120px)] leading-[0.92] tracking-[-0.04em] text-ink mb-1">
-              Some day, you&apos;ll miss
-            </h1>
-
-            <div className="animate-fade-in-d2">
+          <div className="animate-fade-in-d1 font-light text-[clamp(36px,6vw,86px)] leading-[0.92] tracking-[-0.04em] text-ink mb-1">
+            <div>Some day, you&apos;ll</div>
+            <div className="flex items-baseline">
+              <span className="shrink-0">miss&nbsp;</span>
               <TextRotator words={rotatingWords} intervalMs={2500} />
             </div>
+          </div>
 
+          <div className="max-w-3xl">
             <p className="animate-fade-in-d3 mt-7 text-[16px] text-ink-2 font-normal max-w-[46ch] leading-[1.55]">
               arkie is a photo-sharing app for the quiet, mundane moments — the
               ones that feel like nothing now but everything later.
