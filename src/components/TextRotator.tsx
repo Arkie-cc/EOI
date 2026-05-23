@@ -4,13 +4,11 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface TextRotatorProps {
-  staticText?: string;
   words: string[];
   intervalMs?: number;
 }
 
 export default function TextRotator({
-  staticText = "your",
   words,
   intervalMs = 2500,
 }: TextRotatorProps) {
@@ -25,7 +23,6 @@ export default function TextRotator({
 
   return (
     <div className="flex items-center font-light text-[clamp(28px,5vw,80px)] leading-[0.92] tracking-[-0.04em] text-ink">
-      {staticText && <span className="shrink-0 mr-[0.2em]">{staticText}</span>}
       <div
         className="relative flex-1 overflow-hidden"
         style={{
