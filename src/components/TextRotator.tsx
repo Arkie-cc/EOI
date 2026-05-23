@@ -22,53 +22,51 @@ export default function TextRotator({
   }, [words.length, intervalMs]);
 
   return (
-    <div className="flex items-center font-light text-[clamp(28px,5vw,80px)] leading-[0.92] tracking-[-0.04em] text-ink">
-      <div
-        className="relative flex-1 overflow-hidden"
-        style={{
-          height: "2.6em",
-          perspective: "600px",
-          maskImage:
-            "linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)",
-        }}
-      >
-        {words.map((word, i) => {
-          let distance = i - index;
-          const half = words.length / 2;
-          if (distance > half) distance -= words.length;
-          else if (distance < -half) distance += words.length;
+    <div
+      className="relative flex-1 min-w-0 overflow-hidden text-peach"
+      style={{
+        height: "1.15em",
+        perspective: "600px",
+        maskImage:
+          "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+        WebkitMaskImage:
+          "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+      }}
+    >
+      <span className="invisible" aria-hidden="true">{"​"}</span>
+      {words.map((word, i) => {
+        let distance = i - index;
+        const half = words.length / 2;
+        if (distance > half) distance -= words.length;
+        else if (distance < -half) distance += words.length;
 
-          const absD = Math.abs(distance);
+        const absD = Math.abs(distance);
 
-          return (
-            <motion.span
-              key={word}
-              initial={false}
-              animate={{
-                rotateX: distance * -22,
-                y: `${distance * 95}%`,
-                opacity: absD === 0 ? 1 : absD === 1 ? 0.3 : 0,
-                scale: absD === 0 ? 1 : 0.92,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 180,
-                damping: 24,
-              }}
-              className="absolute inset-x-0 block whitespace-nowrap text-peach origin-center"
-              style={{
-                top: "50%",
-                marginTop: "-0.46em",
-                backfaceVisibility: "hidden",
-              }}
-            >
-              {word}
-            </motion.span>
-          );
-        })}
-      </div>
+        return (
+          <motion.span
+            key={word}
+            initial={false}
+            animate={{
+              rotateX: distance * -22,
+              y: `${distance * 95}%`,
+              opacity: absD === 0 ? 1 : 0,
+              scale: absD === 0 ? 1 : 0.92,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 180,
+              damping: 24,
+            }}
+            className="absolute left-0 block whitespace-nowrap origin-center"
+            style={{
+              top: "0",
+              backfaceVisibility: "hidden",
+            }}
+          >
+            {word}
+          </motion.span>
+        );
+      })}
     </div>
   );
 }
