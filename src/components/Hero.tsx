@@ -3,6 +3,20 @@
 import { useState } from "react";
 import Image from "next/image";
 import { getSupabase } from "@/lib/supabase";
+import TextRotator from "@/components/TextRotator";
+
+const rotatingWords = [
+  "home cooked meals",
+  "daily walks",
+  "commute to work",
+  "spot at lunch",
+  "parent's laugh",
+  "dad's favourite joke",
+  "mum's voice",
+  "family in the kitchen",
+  "pet at the door",
+  "everyday moments",
+];
 
 export default function Hero() {
   const [email, setEmail] = useState("");
@@ -77,19 +91,20 @@ export default function Hero() {
               </div>
             </div>
 
-            <h1 className="animate-fade-in-d1 font-light text-[clamp(44px,8vw,120px)] leading-[0.92] tracking-[-0.04em] text-ink">
-              Some day, you&apos;ll miss{" "}
-              <em className="not-italic text-peach">
-                exactly&nbsp;this.
-              </em>
+            <h1 className="animate-fade-in-d1 font-light text-[clamp(44px,8vw,120px)] leading-[0.92] tracking-[-0.04em] text-ink mb-1">
+              Some day, you&apos;ll miss
             </h1>
 
-            <p className="animate-fade-in-d2 mt-7 text-[16px] text-ink-2 font-normal max-w-[46ch] leading-[1.55]">
+            <div className="animate-fade-in-d2">
+              <TextRotator words={rotatingWords} intervalMs={2500} />
+            </div>
+
+            <p className="animate-fade-in-d3 mt-7 text-[16px] text-ink-2 font-normal max-w-[46ch] leading-[1.55]">
               arkie is a photo-sharing app for the quiet, mundane moments — the
               ones that feel like nothing now but everything later.
             </p>
 
-            <div className="mt-10 animate-fade-in-d3">
+            <div className="mt-10 animate-fade-in-d4">
               {status === "success" ? (
                 <div className="border border-ink/14 rounded-[2px] p-6 bg-cream-2/50 max-w-md">
                   <p className="text-ink font-medium text-[15px] mb-1.5">
