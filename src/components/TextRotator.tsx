@@ -49,7 +49,7 @@ export default function TextRotator({
             animate={{
               rotateX: distance * -22,
               y: `${distance * 95}%`,
-              opacity: absD === 0 ? 1 : absD === 1 ? 0.3 : 0,
+              opacity: absD === 0 ? 1 : 0,
               scale: absD === 0 ? 1 : 0.92,
             }}
             transition={{
@@ -59,8 +59,7 @@ export default function TextRotator({
             }}
             className="absolute left-0 block whitespace-nowrap origin-center"
             style={{
-              top: "50%",
-              marginTop: "-0.5em",
+              top: "0",
               backfaceVisibility: "hidden",
             }}
           >

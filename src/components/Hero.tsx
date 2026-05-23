@@ -12,11 +12,10 @@ const rotatingWords = [
   "your spot at lunch",
   "your parent's laugh",
   "the joke your dad always made",
-  "the way your mum calls your name",
+  "the way your mum calls you",
   "your friend saving you a seat",
-  "the sound of your family in the kitchen",
-  "the way your pet waits for you at the door",
-  "the everyday things that quietly disappear",
+  "the sound of your dog barking",
+  "the way your cat purrs",
   "the house you grew up in",
 ];
 
@@ -94,7 +93,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="animate-fade-in-d1 font-light text-[clamp(36px,6vw,86px)] leading-[0.92] tracking-[-0.04em] text-ink mb-1">
+          <div className="animate-fade-in-d1 font-light text-[clamp(36px,6vw,86px)] leading-[1.1] tracking-[-0.04em] text-ink mb-1">
             <div>Some day, you&apos;ll</div>
             <div className="flex items-baseline">
               <span className="shrink-0">miss&nbsp;</span>
