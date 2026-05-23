@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Bokeh from "@/components/Bokeh";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "arkie — Capture moments before they fade",
+  title: "arkie — the moments you'll miss the most",
   description:
-    "arkie is a photo sharing app built on prospective nostalgia. Get prompted throughout your day to capture the moments that matter, before they become memories.",
+    "arkie is a photo-sharing app for the quiet, mundane moments — the ones that feel like nothing now but everything later. Join the waitlist.",
 };
 
 export default function RootLayout({
@@ -21,10 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        <Bokeh />
-        <div className="relative z-10">{children}</div>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+      <body
+        className="min-h-screen"
+        style={{ background: "#F2EAE1", color: "#232733" }}
+      >
+        {children}
+        <div className="grain" aria-hidden="true" />
       </body>
     </html>
   );

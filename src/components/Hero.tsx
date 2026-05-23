@@ -1,76 +1,141 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import { getSupabase } from "@/lib/supabase";
 
 export default function Hero() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const { error } = await getSupabase()
+        .from("waitlist")
+        .insert([{ email: email.trim().toLowerCase() }]);
+
+      if (error) {
+        if (error.code === "23505") {
+          setErrorMessage("You're already on the list — we'll be in touch.");
+          setStatus("error");
+        } else {
+          throw error;
+        }
+        return;
+      }
+
+      setStatus("success");
+      setEmail("");
+    } catch {
+      setErrorMessage("Something went wrong. Please try again.");
+      setStatus("error");
+    }
+  }
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Hazy background image */}
-      <div className="absolute inset-0">
+    <section className="relative min-h-screen flex flex-col">
+      <div className="absolute inset-0 overflow-hidden">
         <Image
           src="/hero-bg.png"
           alt=""
           fill
-          className="object-cover opacity-20 scale-110 animate-drift"
+          className="object-cover opacity-[0.07] saturate-[0.6]"
+          style={{ animation: "soft-drift 40s ease-in-out infinite" }}
           priority
         />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,#E8B4A015_0%,transparent_60%)]" />
       </div>
 
-      {/* Warm gradient overlays */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/60" />
-        <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-background/40 to-transparent" />
-      </div>
-
-      {/* Sunset glow blobs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-br from-[#EB5500]/[0.15] to-[#FFE100]/[0.08] rounded-full blur-[160px] animate-soft-pulse" />
-        <div className="absolute bottom-1/3 left-1/3 w-[400px] h-[400px] bg-[#FF9B00]/[0.12] rounded-full blur-[120px]" />
-        <div className="absolute top-1/3 right-1/4 w-[350px] h-[350px] bg-[#FFE100]/[0.06] rounded-full blur-[100px]" />
-      </div>
-
-      {/* Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(43,20,8,0.5)_90%)]" />
-
-      <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-        <div className="animate-fade-in-up">
-          <p className="text-[13px] uppercase tracking-[0.2em] text-accent-gold mb-8">
-            Prospective Nostalgia
-          </p>
+      <header className="relative z-10 max-w-[1440px] mx-auto w-full px-6 sm:px-14 pt-8 pb-7 flex justify-between items-start border-b border-ink/14">
+        <span className="font-light text-[22px] tracking-[-0.02em] text-ink">
+          arkie<span className="text-peach font-normal">.</span>
+        </span>
+        <div className="font-mono text-[11px] tracking-[0.04em] text-slate uppercase text-right hidden sm:block">
+          <div>Expression of Interest</div>
+          <div className="mt-1 text-coral">Mundane moments · preserved</div>
         </div>
+      </header>
 
-        <h1 className="animate-fade-in-up text-4xl sm:text-5xl md:text-[3.5rem] font-medium tracking-tight leading-[1.15] mb-7">
-          <span className="bg-gradient-to-r from-foreground via-accent-peach to-foreground bg-clip-text text-transparent">
-            Capture the feeling
-          </span>
-          <br />
-          <span className="text-muted">before it becomes</span>
-          <br />
-          <span className="text-muted">a memory.</span>
-        </h1>
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="max-w-[1440px] mx-auto w-full px-6 sm:px-14 py-16 sm:py-0">
+          <div className="max-w-3xl">
+            <div className="animate-fade-in">
+              <div className="flex items-baseline gap-2.5 mb-6">
+                <span className="font-mono text-[11px] tracking-[0.08em] text-coral uppercase">
+                  01 — Waitlist
+                </span>
+                <span className="font-mono text-[11px] tracking-[0.08em] text-slate uppercase">
+                  / open
+                </span>
+              </div>
+            </div>
 
-        <p className="animate-fade-in-up-delay text-[15px] sm:text-base text-muted max-w-lg mx-auto mb-10 leading-relaxed">
-          arkie prompts you throughout your day to photograph the quiet,
-          ordinary moments — the ones you&apos;ll miss the most.
-        </p>
+            <h1 className="animate-fade-in-d1 font-light text-[clamp(44px,8vw,120px)] leading-[0.92] tracking-[-0.04em] text-ink">
+              Some day, you&apos;ll miss{" "}
+              <em className="not-italic text-peach">
+                exactly&nbsp;this.
+              </em>
+            </h1>
 
-        <div className="animate-fade-in-up-delay-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="#waitlist"
-            className="bg-gradient-to-r from-accent-warm to-accent-gold text-white px-7 py-3 rounded-full text-sm font-medium hover:brightness-110 transition-all duration-300 shadow-[0_4px_24px_rgba(235,85,0,0.3)]"
-          >
-            Join the Waitlist
-          </a>
-          <a
-            href="#about"
-            className="text-sm text-muted hover:text-accent-gold transition-colors duration-300 px-4 py-3"
-          >
-            Learn more
-          </a>
+            <p className="animate-fade-in-d2 mt-7 text-[16px] text-ink-2 font-normal max-w-[46ch] leading-[1.55]">
+              arkie is a photo-sharing app for the quiet, mundane moments — the
+              ones that feel like nothing now but everything later.
+            </p>
+
+            <div className="mt-10 animate-fade-in-d3">
+              {status === "success" ? (
+                <div className="border border-ink/14 rounded-[2px] p-6 bg-cream-2/50 max-w-md">
+                  <p className="text-ink font-medium text-[15px] mb-1.5">
+                    You&apos;re on the list.
+                  </p>
+                  <p className="font-mono text-[11px] tracking-[0.04em] text-slate leading-relaxed">
+                    We&apos;ll send you a quiet note when arkie is ready. In the
+                    meantime, keep noticing things.
+                  </p>
+                </div>
+              ) : (
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col sm:flex-row gap-3 max-w-md"
+                >
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (status === "error") setStatus("idle");
+                    }}
+                    placeholder="your@email.com"
+                    className="flex-1 bg-cream-2/60 border border-ink/14 rounded-[2px] px-4 py-3 text-[13px] text-ink placeholder:text-lilac focus:outline-none focus:border-peach/60 transition-colors duration-300"
+                  />
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="bg-ink text-cream px-6 py-3 rounded-[2px] text-[13px] font-medium tracking-[-0.01em] hover:bg-ink-2 transition-colors duration-300 disabled:opacity-50 whitespace-nowrap"
+                  >
+                    {status === "loading" ? "Joining..." : "Join the Waitlist"}
+                  </button>
+                </form>
+              )}
+
+              {status === "error" && (
+                <p className="text-coral text-[13px] mt-3">{errorMessage}</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Warm scroll line */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-40">
-        <div className="w-px h-10 bg-gradient-to-b from-transparent via-accent-warm/60 to-transparent" />
+      <div className="relative z-10 flex justify-center pb-8">
+        <div className="w-px h-10 bg-gradient-to-b from-transparent via-slate/30 to-transparent" />
       </div>
     </section>
   );

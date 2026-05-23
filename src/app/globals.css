@@ -1,69 +1,49 @@
 @import "tailwindcss";
 
-:root {
-  --background: #2b1810;
-  --foreground: #fce8d5;
-  --muted: #c4a08a;
-  --border: #4a2e1e;
-  --card: #3a2218;
-  --card-hover: #4a2e1e;
-  --accent-warm: #FF9B00;
-  --accent-gold: #EB5500;
-  --accent-peach: #FFE100;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-  --color-card: var(--card);
-  --color-card-hover: var(--card-hover);
-  --color-accent-warm: var(--accent-warm);
-  --color-accent-gold: var(--accent-gold);
-  --color-accent-peach: var(--accent-peach);
-  --font-sans: var(--font-inter);
-}
-
-body {
-  background: linear-gradient(
-    180deg,
-    #3d1c10 0%,
-    #6b2e15 10%,
-    #a04a1a 20%,
-    #c46520 30%,
-    #e08428 40%,
-    #c46520 55%,
-    #8a3818 65%,
-    #5a2512 75%,
-    #3a1a0e 85%,
-    #2b1408 100%
-  );
-  background-attachment: fixed;
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  --color-cream: #F2EAE1;
+  --color-cream-2: #E9DFD3;
+  --color-peach: #E8B4A0;
+  --color-coral: #D89B8E;
+  --color-lilac: #9A95A8;
+  --color-slate: #5B6378;
+  --color-ink: #232733;
+  --color-ink-2: #3A3F4E;
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Film grain overlay */
-body::before {
-  content: "";
+body {
+  background: #F2EAE1;
+  color: #232733;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.grain {
   position: fixed;
   inset: 0;
-  z-index: 9999;
   pointer-events: none;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
+  z-index: 9999;
+  mix-blend-mode: multiply;
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.15 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: #E8B4A060;
+  color: #232733;
 }
 
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -71,101 +51,30 @@ body::before {
   }
 }
 
-@keyframes soft-pulse {
+@keyframes soft-drift {
   0%, 100% {
-    opacity: 0.2;
+    transform: scale(1.05) translate(0, 0);
   }
   50% {
-    opacity: 0.35;
+    transform: scale(1.05) translate(-6px, 3px);
   }
 }
 
-@keyframes drift {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(15px, -10px) scale(1.02);
-  }
-  66% {
-    transform: translate(-10px, 8px) scale(0.98);
-  }
+.animate-fade-in {
+  animation: fade-in-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.animate-fade-in-up-delay {
-  animation: fade-in-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+.animate-fade-in-d1 {
+  animation: fade-in-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
   opacity: 0;
 }
 
-.animate-fade-in-up-delay-2 {
-  animation: fade-in-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+.animate-fade-in-d2 {
+  animation: fade-in-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
   opacity: 0;
 }
 
-.animate-soft-pulse {
-  animation: soft-pulse 8s ease-in-out infinite;
-}
-
-.animate-drift {
-  animation: drift 20s ease-in-out infinite;
-}
-
-::selection {
-  background: #FF9B0050;
-  color: #fce8d5;
-}
-
-@keyframes bokeh-float-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(60px, -40px) scale(1.1); }
-  50% { transform: translate(-30px, -80px) scale(0.9); }
-  75% { transform: translate(40px, 20px) scale(1.05); }
-}
-
-@keyframes bokeh-float-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(-50px, 30px) scale(0.95); }
-  50% { transform: translate(70px, 50px) scale(1.1); }
-  75% { transform: translate(-20px, -60px) scale(1); }
-}
-
-@keyframes bokeh-float-3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(30px, 70px) scale(1.08); }
-  50% { transform: translate(-60px, -20px) scale(0.92); }
-  75% { transform: translate(50px, -50px) scale(1.02); }
-}
-
-.bokeh-container {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.bokeh-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(1px);
-}
-
-.bokeh-orb--gold {
-  background: radial-gradient(circle, rgba(255,155,0,0.35) 0%, rgba(255,155,0,0.08) 50%, transparent 70%);
-}
-
-.bokeh-orb--amber {
-  background: radial-gradient(circle, rgba(255,225,0,0.25) 0%, rgba(255,200,50,0.06) 50%, transparent 70%);
-}
-
-.bokeh-orb--warm {
-  background: radial-gradient(circle, rgba(235,85,0,0.2) 0%, rgba(235,85,0,0.05) 50%, transparent 70%);
-}
-
-.bokeh-orb--soft {
-  background: radial-gradient(circle, rgba(255,232,160,0.3) 0%, rgba(255,232,160,0.06) 50%, transparent 70%);
+.animate-fade-in-d3 {
+  animation: fade-in-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+  opacity: 0;
 }
