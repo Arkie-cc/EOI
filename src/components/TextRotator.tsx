@@ -22,12 +22,16 @@ export default function TextRotator({
   }, [words.length, intervalMs]);
 
   return (
-    <div className="flex-1 font-light text-[clamp(44px,8vw,120px)] leading-[0.92] tracking-[-0.04em] text-ink min-w-0">
+    <div className="flex items-center font-light text-[clamp(28px,5vw,80px)] leading-[0.92] tracking-[-0.04em] text-ink">
       <div
-        className="relative w-full overflow-hidden"
+        className="relative flex-1 overflow-hidden"
         style={{
-          height: "1.3em",
+          height: "2.6em",
           perspective: "600px",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)",
         }}
       >
         {words.map((word, i) => {
@@ -44,7 +48,7 @@ export default function TextRotator({
               initial={false}
               animate={{
                 rotateX: distance * -22,
-                y: `calc(-50% + ${distance * 95}%)`,
+                y: `${distance * 95}%`,
                 opacity: absD === 0 ? 1 : absD === 1 ? 0.3 : 0,
                 scale: absD === 0 ? 1 : 0.92,
               }}
@@ -56,6 +60,7 @@ export default function TextRotator({
               className="absolute inset-x-0 block whitespace-nowrap text-peach origin-center"
               style={{
                 top: "50%",
+                marginTop: "-0.46em",
                 backfaceVisibility: "hidden",
               }}
             >

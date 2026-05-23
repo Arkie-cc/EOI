@@ -93,11 +93,11 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="animate-fade-in-d1 flex flex-col sm:flex-row sm:items-baseline sm:gap-x-4">
-              <h1 className="font-light text-[clamp(44px,8vw,120px)] leading-[0.92] tracking-[-0.04em] text-ink">
-                Some day, you&apos;ll miss
-              </h1>
+            <h1 className="animate-fade-in-d1 font-light text-[clamp(44px,8vw,120px)] leading-[0.92] tracking-[-0.04em] text-ink mb-1">
+              Some day, you&apos;ll miss
+            </h1>
 
+            <div className="animate-fade-in-d2">
               <TextRotator words={rotatingWords} intervalMs={2500} />
             </div>
 
