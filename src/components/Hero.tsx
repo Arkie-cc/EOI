@@ -6,16 +6,18 @@ import { getSupabase } from "@/lib/supabase";
 import TextRotator from "@/components/TextRotator";
 
 const rotatingWords = [
-  "home cooked meals",
-  "daily walks",
-  "commute to work",
-  "spot at lunch",
-  "parent's laugh",
-  "dad's favourite joke",
-  "mum's voice",
-  "family in the kitchen",
-  "pet at the door",
-  "everyday moments",
+  "your home cooked meals",
+  "your daily walks",
+  "your commute to work",
+  "your spot at lunch",
+  "your parent's laugh",
+  "the joke your dad always made",
+  "the way your mum calls your name",
+  "your friend saving you a seat",
+  "the sound of your family in the kitchen",
+  "the way your pet waits for you at the door",
+  "the everyday things that quietly disappear",
+  "the house you grew up in",
 ];
 
 export default function Hero() {
