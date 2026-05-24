@@ -11,7 +11,7 @@ export default function Home() {
       <main>
         <Hero />
 
-        <section className="bg-[#111015]">
+        <section id="about" className="bg-[#111015]">
           <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-20 sm:py-28">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
               <div className="flex items-center justify-center gap-2 mb-5">
@@ -54,7 +54,7 @@ export default function Home() {
                   key={item.label}
                   className="bg-[#1a191e] border border-cream/6 rounded-xl p-7 sm:p-8"
                 >
-                  <span className="font-mono text-[11px] tracking-[0.08em] text-peach/60 uppercase">
+                  <span className="font-mono text-[11px] tracking-[0.08em] text-peach uppercase">
                     {item.label}
                   </span>
                   <h3 className="text-[17px] font-medium tracking-tight text-cream mt-4 mb-3 leading-snug">
@@ -72,7 +72,7 @@ export default function Home() {
                 &ldquo;You don&apos;t know you&apos;re making a memory. You just
                 know you&apos;re having fun.&rdquo;
               </p>
-              <p className="font-mono text-[10.5px] tracking-[0.06em] text-peach/40 uppercase mt-4">
+              <p className="font-mono text-[10.5px] tracking-[0.06em] text-peach uppercase mt-4">
                 — Winnie the Pooh
               </p>
             </div>

@@ -39,8 +39,8 @@ export default function SignUp() {
   }
 
   return (
-    <section className="bg-[#111015] border-t border-cream/6">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-24 sm:py-32">
+    <section id="signup" className="bg-[#111015] border-t border-cream/6 min-h-screen flex items-center">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-24 sm:py-32 w-full">
         <div className="max-w-xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-peach" />
