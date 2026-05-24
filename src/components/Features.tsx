@@ -53,7 +53,8 @@ export default function Features() {
               <p className="text-[13px] text-muted leading-[1.7]">
                 {feature.description}
               </p>
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-accent-warm/[0.05] via-transparent to-accent-gold/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-accent-warm/20 via-transparent to-accent-gold/15 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none shadow-[0_0_15px_rgba(235,85,0,0.15),inset_0_0_15px_rgba(235,85,0,0.05)]" />
             </div>
           ))}
         </div>

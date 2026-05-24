@@ -11,7 +11,7 @@ export default function Home() {
       <main>
         <Hero />
 
-        <section className="bg-[#111015]">
+        <section id="about" className="bg-[#111015]">
           <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-20 sm:py-28">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
               <div className="flex items-center justify-center gap-2 mb-5">

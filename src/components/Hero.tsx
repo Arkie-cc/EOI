@@ -1,8 +1,4 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
-import { getSupabase } from "@/lib/supabase";
 import TextRotator from "@/components/TextRotator";
 
 const rotatingWords = [
@@ -20,40 +16,6 @@ const rotatingWords = [
 ];
 
 export default function Hero() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-  const [errorMessage, setErrorMessage] = useState("");
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
-    setErrorMessage("");
-
-    try {
-      const { error } = await getSupabase()
-        .from("waitlist")
-        .insert([{ email: email.trim().toLowerCase() }]);
-
-      if (error) {
-        if (error.code === "23505") {
-          setErrorMessage("You're already on the list — we'll be in touch.");
-          setStatus("error");
-        } else {
-          throw error;
-        }
-        return;
-      }
-
-      setStatus("success");
-      setEmail("");
-    } catch {
-      setErrorMessage("Something went wrong. Please try again.");
-      setStatus("error");
-    }
-  }
-
   return (
     <section className="relative min-h-screen flex flex-col">
       <div className="absolute inset-0 overflow-hidden">
@@ -98,46 +60,19 @@ export default function Hero() {
               ones that feel like nothing now but everything later.
             </p>
 
-            <div className="mt-10 animate-fade-in-d4">
-              {status === "success" ? (
-                <div className="border border-cream/10 rounded-[2px] p-6 bg-cream/5 backdrop-blur-sm max-w-md">
-                  <p className="text-cream font-medium text-[15px] mb-1.5">
-                    You&apos;re on the list.
-                  </p>
-                  <p className="font-mono text-[11px] tracking-[0.04em] text-cream/50 leading-relaxed">
-                    We&apos;ll send you a quiet note when arkie is ready. In the
-                    meantime, keep noticing things.
-                  </p>
-                </div>
-              ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  className="flex flex-col sm:flex-row gap-3 max-w-md"
-                >
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      if (status === "error") setStatus("idle");
-                    }}
-                    placeholder="your@email.com"
-                    className="flex-1 bg-cream/8 border border-cream/12 rounded-[2px] px-4 py-3 text-[13px] text-cream placeholder:text-cream/30 focus:outline-none focus:border-peach/40 transition-colors duration-300"
-                  />
-                  <button
-                    type="submit"
-                    disabled={status === "loading"}
-                    className="bg-cream text-ink px-6 py-3 rounded-[2px] text-[13px] font-medium tracking-[-0.01em] hover:bg-peach hover:text-ink transition-colors duration-300 disabled:opacity-50 whitespace-nowrap"
-                  >
-                    {status === "loading" ? "Joining..." : "Join the Waitlist"}
-                  </button>
-                </form>
-              )}
-
-              {status === "error" && (
-                <p className="text-peach text-[13px] mt-3">{errorMessage}</p>
-              )}
+            <div className="mt-10 animate-fade-in-d4 flex flex-col sm:flex-row gap-3 max-w-md">
+              <a
+                href="#about"
+                className="flex-1 bg-cream text-ink px-6 py-3 rounded-[2px] text-[13px] font-medium tracking-[-0.01em] hover:bg-peach hover:text-ink transition-colors duration-300 whitespace-nowrap text-center"
+              >
+                About Us
+              </a>
+              <a
+                href="#signup"
+                className="flex-1 bg-cream text-ink px-6 py-3 rounded-[2px] text-[13px] font-medium tracking-[-0.01em] hover:bg-peach hover:text-ink transition-colors duration-300 whitespace-nowrap text-center"
+              >
+                Join Us
+              </a>
             </div>
           </div>
         </div>

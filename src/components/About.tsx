@@ -50,7 +50,7 @@ export default function About() {
           ].map((item) => (
             <div
               key={item.stat}
-              className="border border-border/40 rounded-2xl p-7 bg-card/50 hover:bg-card-hover/50 transition-colors duration-500"
+              className="group relative border border-border/40 rounded-2xl p-7 bg-card/50 hover:bg-card-hover/50 transition-all duration-500"
             >
               <p className="text-lg font-medium bg-gradient-to-r from-accent-warm to-accent-gold bg-clip-text text-transparent mb-2">
                 {item.stat}
@@ -58,6 +58,8 @@ export default function About() {
               <p className="text-[13px] text-muted leading-relaxed">
                 {item.label}
               </p>
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-accent-warm/20 via-transparent to-accent-gold/15 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none shadow-[0_0_15px_rgba(235,85,0,0.15),inset_0_0_15px_rgba(235,85,0,0.05)]" />
             </div>
           ))}
         </div>
