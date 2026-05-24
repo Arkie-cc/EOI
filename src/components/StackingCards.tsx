@@ -45,7 +45,7 @@ export default function StackingCards() {
       <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-20 sm:py-28">
         <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight text-cream leading-[1.15] mb-14 sm:mb-20">
           How it works
-          <span className="text-cream/40">.</span>
+          <span className="text-peach">.</span>
         </h2>
 
         <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
