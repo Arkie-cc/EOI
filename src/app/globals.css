@@ -3,10 +3,10 @@
 @theme inline {
   --color-cream: #F2EAE1;
   --color-cream-2: #E9DFD3;
-  --color-peach: #E8B4A0;
-  --color-coral: #D89B8E;
-  --color-lilac: #9A95A8;
-  --color-slate: #5B6378;
+  --color-peach: #E4A890;
+  --color-coral: #D4908A;
+  --color-lilac: #9990A8;
+  --color-slate: #5E5F78;
   --color-ink: #232733;
   --color-ink-2: #3A3F4E;
   --font-sans: var(--font-geist);
@@ -33,6 +33,23 @@ body {
   mix-blend-mode: multiply;
   opacity: 0.22;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.15 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.film-grain {
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  animation: grain-shift 0.4s steps(1) infinite;
+}
+
+@keyframes grain-shift {
+  0% { background-position: 0 0; }
+  25% { background-position: -120px 60px; }
+  50% { background-position: 80px -90px; }
+  75% { background-position: -60px 140px; }
+  100% { background-position: 140px -40px; }
 }
 
 ::selection {

@@ -1,85 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const links = [
-    { label: "About", href: "#about" },
-    { label: "How It Works", href: "#how-it-works" },
-  ];
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > window.innerHeight * 0.85);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-border/20">
-      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="text-lg font-medium tracking-tight text-foreground">
-          arkie
-        </a>
-
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-[13px] text-muted hover:text-foreground transition-colors duration-300"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#waitlist"
-            className="text-[13px] bg-gradient-to-r from-accent-warm to-accent-gold text-white px-5 py-2 rounded-full hover:brightness-110 transition-all duration-300 font-medium shadow-[0_2px_12px_rgba(235,85,0,0.25)]"
-          >
-            Join Waitlist
-          </a>
-        </div>
-
-        <button
-          className="md:hidden text-muted hover:text-foreground transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
+        scrolled
+          ? "bg-cream/90 backdrop-blur-xl"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-[1440px] mx-auto w-full px-6 sm:px-14 py-5 flex justify-between items-center">
+        <span
+          className={`font-light text-[22px] tracking-[-0.02em] transition-colors duration-500 ${
+            scrolled ? "text-ink" : "text-cream"
+          }`}
         >
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
+          arkie
+          <span className="text-peach font-normal">.</span>
+        </span>
+        <div
+          className={`font-mono text-[11px] tracking-[0.04em] uppercase text-right hidden sm:block transition-colors duration-500 ${
+            scrolled ? "text-slate" : "text-cream/50"
+          }`}
+        >
+          <div>Expression of Interest</div>
+          <div
+            className={`mt-1 transition-colors duration-500 ${
+              scrolled ? "text-coral" : "text-peach/70"
+            }`}
           >
-            {mobileOpen ? (
-              <path d="M18 6L6 18M6 6l12 12" />
-            ) : (
-              <path d="M3 12h18M3 6h18M3 18h18" />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {mobileOpen && (
-        <div className="md:hidden border-t border-border/20 bg-background/95 backdrop-blur-xl">
-          <div className="px-6 py-5 flex flex-col gap-5">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted hover:text-foreground transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#waitlist"
-              className="text-sm bg-gradient-to-r from-accent-warm to-accent-gold text-white px-5 py-2.5 rounded-full text-center hover:brightness-110 transition-all duration-300 font-medium"
-              onClick={() => setMobileOpen(false)}
-            >
-              Join Waitlist
-            </a>
+            Mundane moments · preserved
           </div>
         </div>
-      )}
-    </nav>
+      </div>
+    </header>
   );
 }

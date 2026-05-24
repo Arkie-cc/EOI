@@ -58,62 +58,53 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col">
       <div className="absolute inset-0 overflow-hidden">
         <Image
-          src="/hero-bg.png"
+          src="/background.png"
           alt=""
           fill
-          className="object-cover opacity-[0.07] saturate-[0.6]"
+          className="object-cover scale-110 blur-[18px] saturate-[1.15] brightness-[0.45]"
           style={{ animation: "soft-drift 40s ease-in-out infinite" }}
           priority
         />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,#E8B4A015_0%,transparent_60%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1520]/60 via-[#2a1f2e]/30 to-[#1e1a24]/70" />
+        <div className="absolute inset-0 film-grain" />
       </div>
-
-      <header className="relative z-10 max-w-[1440px] mx-auto w-full px-6 sm:px-14 pt-8 pb-7 flex justify-between items-start border-b border-ink/14">
-        <span className="font-light text-[22px] tracking-[-0.02em] text-ink">
-          arkie<span className="text-peach font-normal">.</span>
-        </span>
-        <div className="font-mono text-[11px] tracking-[0.04em] text-slate uppercase text-right hidden sm:block">
-          <div>Expression of Interest</div>
-          <div className="mt-1 text-coral">Mundane moments · preserved</div>
-        </div>
-      </header>
 
       <div className="relative z-10 flex-1 flex items-center">
         <div className="max-w-[1440px] mx-auto w-full px-6 sm:px-14 py-16 sm:py-0">
           <div className="max-w-3xl">
             <div className="animate-fade-in">
               <div className="flex items-baseline gap-2.5 mb-6">
-                <span className="font-mono text-[11px] tracking-[0.08em] text-coral uppercase">
+                <span className="font-mono text-[11px] tracking-[0.08em] text-peach/80 uppercase">
                   01 — Waitlist
                 </span>
-                <span className="font-mono text-[11px] tracking-[0.08em] text-slate uppercase">
+                <span className="font-mono text-[11px] tracking-[0.08em] text-cream/40 uppercase">
                   / open
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="animate-fade-in-d1 font-light text-[clamp(36px,6vw,86px)] leading-[1.1] tracking-[-0.04em] text-ink mb-1">
+          <div className="animate-fade-in-d1 font-light text-[clamp(36px,6vw,86px)] leading-[1.1] tracking-[-0.04em] text-cream mb-1">
             <div>Some day, you&apos;ll</div>
             <div className="flex items-baseline">
               <span className="shrink-0">miss&nbsp;</span>
-              <TextRotator words={rotatingWords} intervalMs={2500} />
+              <TextRotator words={rotatingWords} intervalMs={2000} />
             </div>
           </div>
 
           <div className="max-w-3xl">
-            <p className="animate-fade-in-d3 mt-7 text-[16px] text-ink-2 font-normal max-w-[46ch] leading-[1.55]">
+            <p className="animate-fade-in-d3 mt-7 text-[16px] text-cream/60 font-normal max-w-[46ch] leading-[1.55]">
               arkie is a photo-sharing app for the quiet, mundane moments — the
               ones that feel like nothing now but everything later.
             </p>
 
             <div className="mt-10 animate-fade-in-d4">
               {status === "success" ? (
-                <div className="border border-ink/14 rounded-[2px] p-6 bg-cream-2/50 max-w-md">
-                  <p className="text-ink font-medium text-[15px] mb-1.5">
+                <div className="border border-cream/10 rounded-[2px] p-6 bg-cream/5 backdrop-blur-sm max-w-md">
+                  <p className="text-cream font-medium text-[15px] mb-1.5">
                     You&apos;re on the list.
                   </p>
-                  <p className="font-mono text-[11px] tracking-[0.04em] text-slate leading-relaxed">
+                  <p className="font-mono text-[11px] tracking-[0.04em] text-cream/50 leading-relaxed">
                     We&apos;ll send you a quiet note when arkie is ready. In the
                     meantime, keep noticing things.
                   </p>
@@ -132,12 +123,12 @@ export default function Hero() {
                       if (status === "error") setStatus("idle");
                     }}
                     placeholder="your@email.com"
-                    className="flex-1 bg-cream-2/60 border border-ink/14 rounded-[2px] px-4 py-3 text-[13px] text-ink placeholder:text-lilac focus:outline-none focus:border-peach/60 transition-colors duration-300"
+                    className="flex-1 bg-cream/8 border border-cream/12 rounded-[2px] px-4 py-3 text-[13px] text-cream placeholder:text-cream/30 focus:outline-none focus:border-peach/40 transition-colors duration-300"
                   />
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="bg-ink text-cream px-6 py-3 rounded-[2px] text-[13px] font-medium tracking-[-0.01em] hover:bg-ink-2 transition-colors duration-300 disabled:opacity-50 whitespace-nowrap"
+                    className="bg-cream text-ink px-6 py-3 rounded-[2px] text-[13px] font-medium tracking-[-0.01em] hover:bg-peach hover:text-ink transition-colors duration-300 disabled:opacity-50 whitespace-nowrap"
                   >
                     {status === "loading" ? "Joining..." : "Join the Waitlist"}
                   </button>
@@ -145,7 +136,7 @@ export default function Hero() {
               )}
 
               {status === "error" && (
-                <p className="text-coral text-[13px] mt-3">{errorMessage}</p>
+                <p className="text-peach text-[13px] mt-3">{errorMessage}</p>
               )}
             </div>
           </div>
@@ -153,7 +144,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 flex justify-center pb-8">
-        <div className="w-px h-10 bg-gradient-to-b from-transparent via-slate/30 to-transparent" />
+        <div className="w-px h-10 bg-gradient-to-b from-transparent via-cream/20 to-transparent" />
       </div>
     </section>
   );
