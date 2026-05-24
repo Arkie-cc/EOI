@@ -69,16 +69,6 @@ export default function Hero() {
         <div className="absolute inset-0 film-grain" />
       </div>
 
-      <header className="relative z-10 max-w-[1440px] mx-auto w-full px-6 sm:px-14 pt-8 pb-7 flex justify-between items-start border-b border-cream/10">
-        <span className="font-light text-[22px] tracking-[-0.02em] text-cream">
-          arkie<span className="text-peach font-normal">.</span>
-        </span>
-        <div className="font-mono text-[11px] tracking-[0.04em] text-cream/50 uppercase text-right hidden sm:block">
-          <div>Expression of Interest</div>
-          <div className="mt-1 text-peach/70">Mundane moments · preserved</div>
-        </div>
-      </header>
-
       <div className="relative z-10 flex-1 flex items-center">
         <div className="max-w-[1440px] mx-auto w-full px-6 sm:px-14 py-16 sm:py-0">
           <div className="max-w-3xl">
