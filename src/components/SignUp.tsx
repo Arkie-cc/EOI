@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { getSupabase } from "@/lib/supabase";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -41,7 +42,7 @@ export default function SignUp() {
   return (
     <section id="signup" className="bg-[#111015] border-t border-cream/6 min-h-screen flex items-center">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-24 sm:py-32 w-full">
-        <div className="max-w-xl mx-auto text-center">
+        <ScrollReveal className="max-w-xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-peach" />
             <span className="font-mono text-[12px] tracking-[0.06em] text-cream/40 uppercase">
@@ -95,7 +96,7 @@ export default function SignUp() {
           {status === "error" && (
             <p className="text-peach text-[13px] mt-3">{errorMessage}</p>
           )}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

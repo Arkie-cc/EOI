@@ -100,3 +100,38 @@ body {
   animation: fade-in-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
   opacity: 0;
 }
+
+@keyframes scroll-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-reveal-up-scale {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scroll-reveal {
+  animation: scroll-reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.scroll-reveal-scale {
+  animation: scroll-reveal-up-scale 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes pulse-line {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}

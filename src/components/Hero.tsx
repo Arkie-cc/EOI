@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import TextRotator from "@/components/TextRotator";
 
@@ -16,9 +19,21 @@ const rotatingWords = [
 ];
 
 export default function Hero() {
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function onScroll() {
+      if (bgRef.current) {
+        bgRef.current.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+      }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex flex-col">
-      <div className="absolute inset-0 overflow-hidden">
+    <section id="top" className="relative min-h-screen flex flex-col overflow-hidden">
+      <div ref={bgRef} className="absolute inset-0 overflow-hidden will-change-transform">
         <Image
           src="/background.png"
           alt=""
@@ -79,7 +94,10 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 flex justify-center pb-8">
-        <div className="w-px h-10 bg-gradient-to-b from-transparent via-cream/20 to-transparent" />
+        <div
+          className="w-px h-10 bg-gradient-to-b from-transparent via-cream/20 to-transparent"
+          style={{ animation: "pulse-line 2.5s ease-in-out infinite" }}
+        />
       </div>
     </section>
   );

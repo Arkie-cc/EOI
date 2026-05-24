@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const steps = [
   {
@@ -43,11 +44,14 @@ export default function StackingCards() {
   return (
     <section className="bg-[#111015] border-t border-cream/6">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-20 sm:py-28">
-        <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight text-cream leading-[1.15] mb-14 sm:mb-20">
-          How it works
-          <span className="text-peach">.</span>
-        </h2>
+        <ScrollReveal>
+          <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight text-cream leading-[1.15] mb-14 sm:mb-20">
+            How it works
+            <span className="text-peach">.</span>
+          </h2>
+        </ScrollReveal>
 
+        <ScrollReveal>
         <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
           <div className="flex justify-center">
             <div className="relative w-[340px]">
@@ -135,6 +139,7 @@ export default function StackingCards() {
             })}
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );
