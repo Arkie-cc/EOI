@@ -13,7 +13,29 @@ export default function Home() {
       <main>
         <Hero />
 
-        <section id="about" className="bg-[#111015]">
+        <div className="relative overflow-hidden bg-[#0d0a0f]">
+          <div
+            className="absolute -inset-[50%] pointer-events-none will-change-transform blur-[300px]"
+            style={{ background: "conic-gradient(from 160deg at 30% 25%, rgba(210,140,100,0.2) 0deg, rgba(190,120,140,0.12) 40deg, transparent 80deg, rgba(130,90,140,0.08) 160deg, transparent 200deg, rgba(210,140,100,0.14) 300deg, transparent 360deg)", animation: "aurora-sweep-1 18s ease-in-out infinite" }}
+          />
+          <div
+            className="absolute -inset-[30%] pointer-events-none will-change-transform blur-[320px]"
+            style={{ background: "radial-gradient(ellipse 80% 40% at 70% 20%, rgba(190,120,140,0.18) 0%, rgba(130,90,140,0.1) 30%, transparent 65%)", animation: "aurora-sweep-2 22s ease-in-out infinite" }}
+          />
+          <div
+            className="absolute -inset-[40%] pointer-events-none will-change-transform blur-[340px]"
+            style={{ background: "radial-gradient(ellipse 70% 35% at 20% 50%, rgba(210,140,100,0.14) 0%, rgba(190,120,140,0.07) 40%, transparent 70%)", animation: "aurora-sweep-3 20s ease-in-out infinite" }}
+          />
+          <div
+            className="absolute -inset-[35%] pointer-events-none will-change-transform blur-[310px]"
+            style={{ background: "radial-gradient(ellipse 75% 45% at 60% 75%, rgba(210,140,100,0.16) 0%, rgba(190,120,140,0.08) 35%, transparent 65%)", animation: "aurora-sweep-2 24s ease-in-out infinite" }}
+          />
+          <div
+            className="absolute -inset-[45%] pointer-events-none will-change-transform blur-[330px]"
+            style={{ background: "conic-gradient(from -40deg at 75% 60%, rgba(130,90,140,0.14) 0deg, rgba(190,120,140,0.08) 35deg, transparent 75deg, rgba(210,140,100,0.05) 180deg, transparent 240deg, rgba(130,90,140,0.1) 320deg, transparent 360deg)", animation: "aurora-sweep-3 26s ease-in-out infinite" }}
+          />
+
+        <section id="about" className="relative">
           <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-20 sm:py-28">
             <ScrollReveal className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
               <div className="flex items-center justify-center gap-2 mb-5">
@@ -91,6 +113,7 @@ export default function Home() {
         <StackingCards />
 
         <SignUp />
+        </div>
       </main>
       <Footer />
       <BackToTop />
