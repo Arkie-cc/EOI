@@ -52,7 +52,7 @@ export default function Home() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="bg-[#1a191e] border border-cream/6 rounded-xl p-7 sm:p-8"
+                  className="bg-[#1a191e] border border-cream/6 rounded-xl p-7 sm:p-8 transition-all duration-300 hover:border-peach/30 hover:bg-[#1e1d24] hover:shadow-[0_0_20px_rgba(228,168,144,0.08)]"
                 >
                   <span className="font-mono text-[11px] tracking-[0.08em] text-peach uppercase">
                     {item.label}
