@@ -12,7 +12,7 @@ const metaRows = [
 
 export default function About() {
   return (
-    <section id="about" className="relative border-t border-cream/6 min-h-screen flex items-center isolate">
+    <section id="about" className="relative border-t border-cream/6 min-h-[60vh] flex items-center isolate">
       <div className="photo-section-bg" aria-hidden="true">
         <img
           src="/sunset-bench.jpg"

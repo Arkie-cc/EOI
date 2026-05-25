@@ -62,7 +62,7 @@ export default function Hero() {
           </div>
 
           <div className="animate-fade-in-d1 font-light text-[clamp(30px,6vw,86px)] sm:text-[clamp(36px,6vw,86px)] leading-[1.1] tracking-[-0.04em] text-cream mb-1">
-            Some day, you&apos;ll miss{" "}
+            <span className="block">Some day, you&apos;ll miss</span>
             <TextRotator words={rotatingWords} intervalMs={2000} />
           </div>
 
