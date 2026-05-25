@@ -40,38 +40,43 @@ export default function SignUp() {
   }
 
   return (
-    <section id="signup" className="relative border-t border-cream/6 min-h-screen flex items-center">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-24 sm:py-32 w-full">
-        <ScrollReveal className="max-w-xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-peach" />
-            <span className="font-mono text-[12px] tracking-[0.06em] text-cream/40 uppercase">
-              Join the waitlist
-            </span>
-          </div>
+    <section id="signup" className="relative border-t border-cream/6 min-h-screen flex items-center text-center isolate">
+      <div className="photo-section-bg" aria-hidden="true">
+        <img
+          src="/sunset-lamps.jpg"
+          alt=""
+          className="absolute inset-[-3%] w-[106%] h-[106%] object-cover blur-[14px] saturate-[1.08]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07050a]/60 via-[#07050a]/50 to-[#07050a]/80" />
+      </div>
 
-          <h2 className="text-[clamp(24px,4vw,42px)] font-medium tracking-tight text-cream leading-[1.2] mb-4">
-            Placeholder heading text.
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-14 relative z-[1]">
+        <ScrollReveal className="max-w-[560px] mx-auto">
+          <span className="font-mono text-[10.5px] tracking-[0.12em] text-cream/40 uppercase inline-block mb-5">
+            04 — Waitlist / Open
+          </span>
+
+          <h2 className="text-[clamp(30px,4.4vw,50px)] font-medium tracking-tight text-cream leading-[1.1] mb-5">
+            Save yourself <span className="text-peach">a seat.</span>
           </h2>
-          <p className="text-[16px] leading-relaxed text-cream/40 mb-10">
-            Placeholder subtitle text to be updated later.
+          <p className="text-[15px] leading-relaxed text-cream/40 mb-9 max-w-[420px] mx-auto">
+            We&apos;re letting people in slowly, in the order they arrive. No spam,
+            no metrics, no marketing emails — just one quiet note when it&apos;s
+            your turn.
           </p>
 
           {status === "success" ? (
-            <div className="border border-cream/10 rounded-[2px] p-6 bg-cream/5 backdrop-blur-sm text-left">
-              <p className="text-cream font-medium text-[15px] mb-1.5">
+            <div className="border border-peach/40 rounded-md p-6 bg-peach/10 text-left max-w-[480px] mx-auto">
+              <h4 className="text-cream font-normal text-[18px] mb-1.5">
                 You&apos;re on the list.
-              </p>
-              <p className="font-mono text-[11px] tracking-[0.04em] text-cream/50 leading-relaxed">
-                We&apos;ll send you a quiet note when arkie is ready. In the
-                meantime, keep noticing things.
+              </h4>
+              <p className="text-cream/50 text-[13.5px]">
+                We&apos;ll write to <b className="text-cream/70">{email}</b> when
+                there&apos;s a seat. Until then, take a quiet photo for us.
               </p>
             </div>
           ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            >
+            <div className="flex gap-2 p-1.5 rounded-md bg-cream/6 border border-cream/8 max-w-[480px] mx-auto transition-all duration-300 focus-within:border-peach/40 focus-within:bg-cream/8">
               <input
                 type="email"
                 required
@@ -80,22 +85,37 @@ export default function SignUp() {
                   setEmail(e.target.value);
                   if (status === "error") setStatus("idle");
                 }}
-                placeholder="your@email.com"
-                className="flex-1 bg-cream/8 border border-cream/12 rounded-[2px] px-4 py-3 text-[13px] text-cream placeholder:text-cream/30 focus:outline-none focus:border-peach/40 transition-colors duration-300"
+                placeholder="your.email@somewhere.quiet"
+                className="flex-1 h-[38px] bg-transparent border-0 outline-none text-cream text-[14px] px-3.5 placeholder:text-cream/25"
               />
               <button
-                type="submit"
+                type="button"
+                onClick={handleSubmit}
                 disabled={status === "loading"}
-                className="bg-cream text-ink px-6 py-3 rounded-[2px] text-[13px] font-medium tracking-[-0.01em] hover:bg-peach hover:text-ink transition-colors duration-300 disabled:opacity-50 whitespace-nowrap"
+                className="btn-accent h-[38px] px-5 rounded text-[12px] font-medium tracking-[0.02em] whitespace-nowrap disabled:opacity-50 transition-all duration-200 hover:-translate-y-px"
               >
-                {status === "loading" ? "Joining..." : "Join the Waitlist"}
+                {status === "loading" ? "Joining..." : "Save my seat"}
               </button>
-            </form>
+            </div>
           )}
 
           {status === "error" && (
-            <p className="text-peach text-[13px] mt-3">{errorMessage}</p>
+            <p className="text-peach text-[13px] mt-3 font-mono text-[10px] tracking-[0.12em] uppercase">
+              {errorMessage}
+            </p>
           )}
+
+          <div className="mt-6 flex justify-center gap-6">
+            <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/25 uppercase">
+              No spam.
+            </span>
+            <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/25 uppercase">
+              No tracking.
+            </span>
+            <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/25 uppercase">
+              One quiet note.
+            </span>
+          </div>
         </ScrollReveal>
       </div>
     </section>

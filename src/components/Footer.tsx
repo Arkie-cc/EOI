@@ -1,34 +1,28 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-ink/14">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p className="font-mono text-[10.5px] tracking-[0.06em] text-slate uppercase">
-          &copy; {new Date().getFullYear()} arkie · capturing mundane moments
-        </p>
+    <footer className="border-t border-cream/8 bg-[#0d0a0f]">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/25 uppercase">
+          &copy; Arkie — Mundane moments, preserved.
+        </span>
         <div className="flex items-center gap-6">
           <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[10.5px] tracking-[0.06em] text-slate uppercase hover:text-ink transition-colors duration-300"
+            href="#"
+            className="font-mono text-[9.5px] tracking-[0.16em] text-cream/25 uppercase hover:text-cream/50 transition-colors duration-300"
           >
-            X
+            Privacy
           </a>
           <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[10.5px] tracking-[0.06em] text-slate uppercase hover:text-ink transition-colors duration-300"
+            href="#"
+            className="font-mono text-[9.5px] tracking-[0.16em] text-cream/25 uppercase hover:text-cream/50 transition-colors duration-300"
           >
-            Instagram
+            Terms
           </a>
           <a
-            href="https://tiktok.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[10.5px] tracking-[0.06em] text-slate uppercase hover:text-ink transition-colors duration-300"
+            href="#"
+            className="font-mono text-[9.5px] tracking-[0.16em] text-cream/25 uppercase hover:text-cream/50 transition-colors duration-300"
           >
-            TikTok
+            Contact
           </a>
         </div>
       </div>

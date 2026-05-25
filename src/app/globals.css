@@ -52,6 +52,87 @@ body {
   100% { background-position: 140px -40px; }
 }
 
+/* ─── Nav link underline ─────────────────────────────────────────────── */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: #E4A890;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.text-cream::after {
+  transform: scaleX(1);
+}
+
+/* ─── Design buttons ─────────────────────────────────────────────────── */
+.btn-soft {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 18px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  background: rgba(242, 234, 225, 0.92);
+  color: #1b1216;
+  border: 0.5px solid transparent;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+.btn-soft:hover {
+  background: #F2EAE1;
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 18px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  background: rgba(242, 234, 225, 0.06);
+  color: #F2EAE1;
+  border: 0.5px solid rgba(242, 234, 225, 0.12);
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.btn-ghost:hover {
+  background: rgba(242, 234, 225, 0.12);
+  border-color: rgba(242, 234, 225, 0.28);
+}
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #E4A890;
+  color: #1b1216;
+  border: none;
+  cursor: pointer;
+}
+.btn-accent:hover {
+  background: #F2EAE1;
+}
+
+/* ─── Photo section background ───────────────────────────────────────── */
+.photo-section-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 ::selection {
   background: #E8B4A060;
   color: #232733;
