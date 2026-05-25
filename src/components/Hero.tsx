@@ -54,7 +54,7 @@ export default function Hero() {
                 <span className="font-mono text-[11px] tracking-[0.08em] text-peach/80 uppercase">
                   01 — Waitlist
                 </span>
-                <span className="font-mono text-[11px] tracking-[0.08em] text-cream/40 uppercase">
+                <span className="font-mono text-[11px] tracking-[0.08em] text-cream/55 uppercase">
                   / open
                 </span>
               </div>
@@ -70,16 +70,16 @@ export default function Hero() {
           </div>
 
           <div className="max-w-3xl">
-            <p className="animate-fade-in-d3 mt-7 text-[16px] text-cream/60 font-normal max-w-[46ch] leading-[1.55]">
+            <p className="animate-fade-in-d3 mt-7 text-[16px] text-cream/70 font-normal max-w-[46ch] leading-[1.55]">
               arkie is a photo-sharing app for the quiet, mundane moments — the
               ones that feel like nothing now but everything later.
             </p>
 
-            <div className="mt-10 animate-fade-in-d4 flex gap-2.5">
+            <div className="mt-10 animate-fade-in-d4 flex gap-3">
               <a href="#about" className="btn-soft">
                 About us
               </a>
-              <a href="#signup" className="btn-accent h-[34px] px-[18px] rounded text-[11.5px] font-medium tracking-[0.02em] whitespace-nowrap transition-all duration-200 hover:-translate-y-px">
+              <a href="#signup" className="btn-accent h-[40px] px-[22px] rounded-lg text-[13px] font-medium tracking-[0.02em] whitespace-nowrap">
                 Join us
               </a>
             </div>

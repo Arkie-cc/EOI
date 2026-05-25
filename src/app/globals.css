@@ -75,41 +75,43 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 34px;
-  padding: 0 18px;
-  border-radius: 4px;
-  font-size: 11.5px;
+  height: 40px;
+  padding: 0 22px;
+  border-radius: 8px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.02em;
   white-space: nowrap;
   background: rgba(242, 234, 225, 0.92);
   color: #1b1216;
   border: 0.5px solid transparent;
-  transition: transform 0.15s ease, background 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-soft:hover {
   background: #F2EAE1;
   transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(242, 234, 225, 0.15);
 }
 .btn-ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 34px;
-  padding: 0 18px;
-  border-radius: 4px;
-  font-size: 11.5px;
+  height: 40px;
+  padding: 0 22px;
+  border-radius: 8px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.02em;
   white-space: nowrap;
   background: rgba(242, 234, 225, 0.06);
   color: #F2EAE1;
   border: 0.5px solid rgba(242, 234, 225, 0.12);
-  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-ghost:hover {
   background: rgba(242, 234, 225, 0.12);
   border-color: rgba(242, 234, 225, 0.28);
+  transform: translateY(-1px);
 }
 .btn-accent {
   display: inline-flex;
@@ -119,9 +121,12 @@ body {
   color: #1b1216;
   border: none;
   cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-accent:hover {
   background: #F2EAE1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(228, 168, 144, 0.2);
 }
 
 /* ─── Photo section background ───────────────────────────────────────── */

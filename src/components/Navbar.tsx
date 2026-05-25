@@ -53,7 +53,7 @@ export default function Navbar() {
               href={`#${link.id}`}
               onClick={go(link.id)}
               className={`nav-link font-mono text-[10.5px] tracking-[0.08em] uppercase relative py-1 transition-colors duration-200 ${
-                active === link.id ? "text-cream" : "text-cream/50 hover:text-cream"
+                active === link.id ? "text-cream" : "text-cream/60 hover:text-cream"
               }`}
             >
               {link.label}
