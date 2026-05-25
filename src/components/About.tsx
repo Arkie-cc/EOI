@@ -35,7 +35,7 @@ export default function About() {
           </span>
           <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight text-cream leading-[1.15]">
             We&apos;re building{" "}
-            <span className="text-peach">a quiet place</span> for the moments
+            <span className="text-peach">a quiet place</span>{" "}for the moments
             you&apos;ll only recognise in hindsight.
           </h2>
         </ScrollReveal>

@@ -22,8 +22,8 @@ export default function TextRotator({
   }, [words.length, intervalMs]);
 
   return (
-    <div
-      className="relative flex-1 min-w-0 overflow-hidden text-peach"
+    <span
+      className="relative inline-block overflow-hidden text-peach align-baseline"
       style={{
         height: "1.15em",
         perspective: "600px",
@@ -33,7 +33,7 @@ export default function TextRotator({
           "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
       }}
     >
-      <span className="invisible" aria-hidden="true">{"​"}</span>
+      <span className="invisible whitespace-nowrap" aria-hidden="true">{words[index]}</span>
       {words.map((word, i) => {
         let distance = i - index;
         const half = words.length / 2;
@@ -67,6 +67,6 @@ export default function TextRotator({
           </motion.span>
         );
       })}
-    </div>
+    </span>
   );
 }
