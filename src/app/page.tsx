@@ -99,14 +99,6 @@ export default function Home() {
                 — Winnie the Pooh
               </p>
             </ScrollReveal>
-
-            <div className="flex justify-center pb-4">
-              <a href="#how-it-works" aria-label="Scroll to how it works" className="text-cream/20 hover:text-peach transition-colors duration-300" style={{ animation: "pulse-line 2.5s ease-in-out infinite" }}>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M10 3v14M4 12l6 6 6-6" />
-                </svg>
-              </a>
-            </div>
           </div>
         </section>
 

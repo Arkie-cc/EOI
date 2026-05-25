@@ -42,7 +42,7 @@ export default function StackingCards() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="how-it-works" className="relative border-t border-cream/6">
+    <section className="bg-[#111015] border-t border-cream/6">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-20 sm:py-28">
         <ScrollReveal>
           <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight text-cream leading-[1.15] mb-14 sm:mb-20">
