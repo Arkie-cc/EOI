@@ -32,10 +32,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="top" className="relative min-h-screen flex flex-col overflow-hidden">
+    <section id="top" className="relative min-h-screen flex flex-col overflow-hidden bg-[#1a1520]">
       <div ref={bgRef} className="absolute inset-0 overflow-hidden will-change-transform">
         <Image
-          src="/background.png"
+          src="/background.webp"
           alt=""
           fill
           className="object-cover scale-110 blur-[18px] saturate-[1.15] brightness-[0.45]"
