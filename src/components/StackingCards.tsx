@@ -49,26 +49,26 @@ const steps = [
 
 export default function StackingCards() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const dragStartY = useRef<number | null>(null);
+  const dragStartX = useRef<number | null>(null);
   const isDragging = useRef(false);
 
   const onPointerDown = useCallback((e: React.PointerEvent) => {
-    dragStartY.current = e.clientY;
+    dragStartX.current = e.clientX;
     isDragging.current = true;
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
   }, []);
 
   const onPointerUp = useCallback((e: React.PointerEvent) => {
-    if (dragStartY.current === null || !isDragging.current) return;
+    if (dragStartX.current === null || !isDragging.current) return;
     isDragging.current = false;
-    const delta = dragStartY.current - e.clientY;
+    const delta = dragStartX.current - e.clientX;
     const threshold = 30;
     if (delta > threshold) {
       setActiveIndex((prev) => Math.min(prev + 1, steps.length - 1));
     } else if (delta < -threshold) {
       setActiveIndex((prev) => Math.max(prev - 1, 0));
     }
-    dragStartY.current = null;
+    dragStartX.current = null;
   }, []);
 
   return (
