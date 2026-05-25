@@ -17,7 +17,7 @@ export default function About() {
         <img
           src="/sunset-bench.jpg"
           alt=""
-          className="absolute inset-[-3%] w-[106%] h-[106%] object-cover blur-[14px] saturate-[1.08]"
+          className="absolute -left-[5%] -top-[5%] w-[110%] h-[110%] max-w-none object-cover blur-[14px] saturate-[1.08]"
         />
         <div
           className="absolute inset-0"
@@ -30,7 +30,7 @@ export default function About() {
 
       <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-20 relative z-[1] w-full">
         <ScrollReveal className="mb-10 max-w-[720px]">
-          <span className="font-mono text-[10.5px] tracking-[0.12em] text-cream/40 uppercase block mb-4">
+          <span className="font-mono text-[10.5px] tracking-[0.12em] text-cream/55 uppercase block mb-4">
             02 — About
           </span>
           <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight text-cream leading-[1.15]">
@@ -49,17 +49,17 @@ export default function About() {
               </span>
             </p>
             <div className="space-y-3 max-w-[460px]">
-              <p className="text-[14px] leading-[1.65] text-cream/40">
+              <p className="text-[14px] leading-[1.65] text-cream/55">
                 Not the highlights. Not the milestones. The quiet, mundane
                 moments that feel like nothing now — but everything later.
                 Gentle nudges throughout your day to notice what&apos;s around you.
               </p>
-              <p className="text-[14px] leading-[1.65] text-cream/40">
+              <p className="text-[14px] leading-[1.65] text-cream/55">
                 A feed of real moments from the people you care about. No likes,
                 no followers, no algorithm. Just the things that mattered,
                 preserved before they fade.
               </p>
-              <p className="text-[14px] leading-[1.65] text-cream/40">
+              <p className="text-[14px] leading-[1.65] text-cream/55">
                 Your future self will scroll back and feel something you didn&apos;t
                 expect. That&apos;s the whole point.
               </p>
@@ -73,7 +73,7 @@ export default function About() {
                   key={row.label}
                   className="flex flex-col gap-1 pt-4 border-t border-cream/8"
                 >
-                  <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/30 uppercase">
+                  <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/45 uppercase">
                     {row.label}
                   </span>
                   <span className="text-[15px] text-cream/70">{row.value}</span>

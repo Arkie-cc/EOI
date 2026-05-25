@@ -56,7 +56,7 @@ export default function StackingCards() {
         <img
           src="/sunset-path.jpg"
           alt=""
-          className="absolute inset-[-3%] w-[106%] h-[106%] object-cover blur-[14px] saturate-[1.08]"
+          className="absolute -left-[5%] -top-[5%] w-[110%] h-[110%] max-w-none object-cover blur-[14px] saturate-[1.08]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#07050a]/70 via-[#07050a]/55 to-[#07050a]/85" />
         <div className="absolute inset-0 bg-[#050309]" style={{ opacity: 0 }} />
@@ -65,14 +65,14 @@ export default function StackingCards() {
       <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-12 sm:py-14 relative z-[1] w-full">
         <ScrollReveal>
           <div className="mb-8 sm:mb-10 max-w-[720px]">
-            <span className="font-mono text-[10.5px] tracking-[0.12em] text-cream/40 uppercase block mb-4">
+            <span className="font-mono text-[10.5px] tracking-[0.12em] text-cream/55 uppercase block mb-4">
               03 — How it works
             </span>
             <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight text-cream leading-[1.15] mb-5">
               Three quiet steps,{" "}
               <span className="text-peach">no notifications, no metrics.</span>
             </h2>
-            <p className="text-[16px] leading-relaxed text-cream/40 max-w-[540px]">
+            <p className="text-[16px] leading-relaxed text-cream/55 max-w-[540px]">
               A camera, an archive, and a slow letter home.
             </p>
           </div>
@@ -105,10 +105,10 @@ export default function StackingCards() {
                         <p className="text-cream text-[15px] font-medium text-center mb-2">
                           {step.phoneLine1}
                         </p>
-                        <p className="text-cream/35 text-[12px] text-center leading-relaxed">
+                        <p className="text-cream/50 text-[12px] text-center leading-relaxed">
                           {step.phoneLine2}
                         </p>
-                        <span className="font-mono text-[7px] tracking-[0.16em] text-cream/25 uppercase mt-4">
+                        <span className="font-mono text-[7px] tracking-[0.16em] text-cream/40 uppercase mt-4">
                           {step.phoneTag}
                         </span>
                       </div>
@@ -174,7 +174,7 @@ export default function StackingCards() {
                             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                             className="overflow-hidden"
                           >
-                            <p className="text-[13px] leading-relaxed text-cream/40 mt-2 max-w-[50ch]">
+                            <p className="text-[13px] leading-relaxed text-cream/55 mt-2 max-w-[50ch]">
                               {step.description}
                             </p>
                           </motion.div>

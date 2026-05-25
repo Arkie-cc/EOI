@@ -45,21 +45,21 @@ export default function SignUp() {
         <img
           src="/sunset-lamps.jpg"
           alt=""
-          className="absolute inset-[-3%] w-[106%] h-[106%] object-cover blur-[14px] saturate-[1.08]"
+          className="absolute -left-[5%] -top-[5%] w-[110%] h-[110%] max-w-none object-cover blur-[14px] saturate-[1.08]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#07050a]/60 via-[#07050a]/50 to-[#07050a]/80" />
       </div>
 
       <div className="max-w-[1440px] mx-auto px-6 sm:px-14 relative z-[1]">
         <ScrollReveal className="max-w-[560px] mx-auto">
-          <span className="font-mono text-[10.5px] tracking-[0.12em] text-cream/40 uppercase inline-block mb-5">
+          <span className="font-mono text-[10.5px] tracking-[0.12em] text-cream/55 uppercase inline-block mb-5">
             04 — Waitlist / Open
           </span>
 
           <h2 className="text-[clamp(30px,4.4vw,50px)] font-medium tracking-tight text-cream leading-[1.1] mb-5">
             Save yourself <span className="text-peach">a seat.</span>
           </h2>
-          <p className="text-[15px] leading-relaxed text-cream/40 mb-9 max-w-[420px] mx-auto">
+          <p className="text-[15px] leading-relaxed text-cream/55 mb-9 max-w-[420px] mx-auto">
             We&apos;re letting people in slowly, in the order they arrive. No spam,
             no metrics, no marketing emails — just one quiet note when it&apos;s
             your turn.
@@ -86,13 +86,13 @@ export default function SignUp() {
                   if (status === "error") setStatus("idle");
                 }}
                 placeholder="your.email@somewhere.quiet"
-                className="flex-1 h-[38px] bg-transparent border-0 outline-none text-cream text-[14px] px-3.5 placeholder:text-cream/25"
+                className="flex-1 h-[38px] bg-transparent border-0 outline-none text-cream text-[14px] px-3.5 placeholder:text-cream/40"
               />
               <button
                 type="button"
                 onClick={handleSubmit}
                 disabled={status === "loading"}
-                className="btn-accent h-[38px] px-5 rounded text-[12px] font-medium tracking-[0.02em] whitespace-nowrap disabled:opacity-50 transition-all duration-200 hover:-translate-y-px"
+                className="btn-accent h-[40px] px-6 rounded-lg text-[13px] font-medium tracking-[0.02em] whitespace-nowrap disabled:opacity-50"
               >
                 {status === "loading" ? "Joining..." : "Save my seat"}
               </button>
@@ -106,13 +106,13 @@ export default function SignUp() {
           )}
 
           <div className="mt-6 flex justify-center gap-6">
-            <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/25 uppercase">
+            <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/40 uppercase">
               No spam.
             </span>
-            <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/25 uppercase">
+            <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/40 uppercase">
               No tracking.
             </span>
-            <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/25 uppercase">
+            <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/40 uppercase">
               One quiet note.
             </span>
           </div>
