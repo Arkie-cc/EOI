@@ -1,68 +1,89 @@
+"use client";
+
+import ScrollReveal from "@/components/ScrollReveal";
+
+const metaRows = [
+  { label: "Founded", value: "Twenty twenty-four, a tuesday." },
+  { label: "Headquarters", value: "A small studio, somewhere it rains." },
+  { label: "Made by", value: "Four people. Lorem, ipsum, dolor & sit." },
+  { label: "Not for", value: "Engagement. Streaks. The algorithm." },
+  { label: "For", value: "Your seventy-year-old self. And the people they love." },
+];
+
 export default function About() {
   return (
-    <section id="about" className="py-28 sm:py-36 px-6 relative overflow-hidden">
-      {/* Subtle warm glow behind section */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#FF9B00]/[0.06] rounded-full blur-[120px] pointer-events-none" />
+    <section id="about" className="relative border-t border-cream/6 min-h-screen flex items-center isolate">
+      <div className="photo-section-bg" aria-hidden="true">
+        <img
+          src="/sunset-bench.jpg"
+          alt=""
+          className="absolute inset-[-3%] w-[106%] h-[106%] object-cover blur-[14px] saturate-[1.08]"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 80% at 18% 55%, rgba(7,5,10,0.82), rgba(7,5,10,0.35) 70%, rgba(7,5,10,0.55) 100%), linear-gradient(180deg, rgba(7,5,10,0.3) 0%, rgba(7,5,10,0.55) 100%)",
+          }}
+        />
+      </div>
 
-      <div className="relative max-w-5xl mx-auto">
-        <p className="text-[13px] uppercase tracking-[0.2em] text-accent-gold/70 mb-5">
-          About arkie
-        </p>
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-20 relative z-[1] w-full">
+        <ScrollReveal className="mb-10 max-w-[720px]">
+          <span className="font-mono text-[10.5px] tracking-[0.12em] text-cream/40 uppercase block mb-4">
+            02 — About
+          </span>
+          <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight text-cream leading-[1.15]">
+            We&apos;re building{" "}
+            <span className="text-peach">a quiet place</span> for the moments
+            you&apos;ll only recognise in hindsight.
+          </h2>
+        </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-14 md:gap-20">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight leading-snug">
-              Most moments don&apos;t feel
-              <br className="hidden sm:block" />
-              <span className="text-muted">special until they&apos;re gone.</span>
-            </h2>
-          </div>
-          <div className="flex flex-col gap-5">
-            <p className="text-[15px] text-muted leading-[1.7]">
-              arkie is built on a simple idea:{" "}
-              <span className="text-accent-warm">prospective nostalgia</span>{" "}
-              — the act of recognising a moment&apos;s value while you&apos;re
-              still in it. We prompt you throughout your day to pause and
-              capture what&apos;s right in front of you.
+        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-20">
+          <ScrollReveal>
+            <p className="text-[clamp(20px,2.5vw,28px)] font-normal leading-[1.3] tracking-[-0.01em] text-cream mb-5">
+              Arkie is a photo-sharing app for the quiet, mundane moments —
+              <span className="text-peach">
+                {" "}the ones that feel like nothing now but everything later.
+              </span>
             </p>
-            <p className="text-[15px] text-muted leading-[1.7]">
-              Not the highlights. Not the perfect shots. The morning light
-              hitting your desk. Your friend mid-sentence. The walk home. The
-              kind of photos that feel like nothing now but everything later.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-3 gap-5 mt-20">
-          {[
-            {
-              stat: "Prompted",
-              label: "Gentle nudges throughout the day, never intrusive",
-            },
-            {
-              stat: "Shared",
-              label: "A feed of real moments from the people you care about",
-            },
-            {
-              stat: "Preserved",
-              label: "Your future self will thank you for what you saved",
-            },
-          ].map((item) => (
-            <div
-              key={item.stat}
-              className="group relative border border-border/40 rounded-2xl p-7 bg-card/50 hover:bg-card-hover/50 transition-all duration-500"
-            >
-              <p className="text-lg font-medium bg-gradient-to-r from-accent-warm to-accent-gold bg-clip-text text-transparent mb-2">
-                {item.stat}
+            <div className="space-y-3 max-w-[460px]">
+              <p className="text-[14px] leading-[1.65] text-cream/40">
+                Not the highlights. Not the milestones. The quiet, mundane
+                moments that feel like nothing now — but everything later.
+                Gentle nudges throughout your day to notice what&apos;s around you.
               </p>
-              <p className="text-[13px] text-muted leading-relaxed">
-                {item.label}
+              <p className="text-[14px] leading-[1.65] text-cream/40">
+                A feed of real moments from the people you care about. No likes,
+                no followers, no algorithm. Just the things that mattered,
+                preserved before they fade.
               </p>
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-accent-warm/20 via-transparent to-accent-gold/15 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-              <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none shadow-[0_0_15px_rgba(235,85,0,0.15),inset_0_0_15px_rgba(235,85,0,0.05)]" />
+              <p className="text-[14px] leading-[1.65] text-cream/40">
+                Your future self will scroll back and feel something you didn&apos;t
+                expect. That&apos;s the whole point.
+              </p>
             </div>
-          ))}
+          </ScrollReveal>
+
+          <ScrollReveal delay={120}>
+            <aside className="flex flex-col gap-5">
+              {metaRows.map((row) => (
+                <div
+                  key={row.label}
+                  className="flex flex-col gap-1 pt-4 border-t border-cream/8"
+                >
+                  <span className="font-mono text-[9.5px] tracking-[0.16em] text-cream/30 uppercase">
+                    {row.label}
+                  </span>
+                  <span className="text-[15px] text-cream/70">{row.value}</span>
+                </div>
+              ))}
+            </aside>
+          </ScrollReveal>
         </div>
+
+
       </div>
     </section>
   );

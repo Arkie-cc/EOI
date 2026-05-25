@@ -1,40 +1,49 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const steps = [
   {
     number: "01",
-    title: "Placeholder title one",
+    tag: "Capture",
+    title: "Open arkie when nothing's happening.",
     description:
-      "Placeholder description for the first step. This will be updated later with real content.",
-    phoneLine1: "A gentle nudge",
+      "The kettle. The morning bus. A friend tying their shoe. Gentle nudges throughout your day to notice what's around you. No pressure — just an invitation to look.",
+    phoneLine1: "A quiet kettle",
     phoneLine2: "What caught your eye today?",
+    phoneTag: "capture · tuesday",
   },
   {
     number: "02",
-    title: "Placeholder title two",
+    tag: "Hold",
+    title: "Arkie waits with you.",
     description:
-      "Placeholder description for the second step. This will be updated later with real content.",
-    phoneLine1: "Capture the moment",
-    phoneLine2: "No filters. No pressure. Just you.",
+      "No filters, no metrics. Your photos sit quietly in a small private archive. No counts that would flatten the thing into a measurement.",
+    phoneLine1: "Private archive",
+    phoneLine2: "37 quiet moments, held.",
+    phoneTag: "archive · this week",
   },
   {
     number: "03",
-    title: "Placeholder title three",
+    tag: "Share",
+    title: "One photo finds its way home.",
     description:
-      "Placeholder description for the third step. This will be updated later with real content.",
-    phoneLine1: "Share quietly",
-    phoneLine2: "Only the people who matter.",
+      "Once a week, arkie picks one and offers it to the people you love. Quietly. Without a notification. They open it when they're ready.",
+    phoneLine1: "For Maya",
+    phoneLine2: "Sent without a notification.",
+    phoneTag: "sunday · shared",
   },
   {
     number: "04",
-    title: "Placeholder title four",
+    tag: "Remember",
+    title: "Scroll back and feel something.",
     description:
-      "Placeholder description for the fourth step. This will be updated later with real content.",
+      "Your future self will find moments you didn't know you were saving. That's the whole point — preserving what you almost forgot.",
     phoneLine1: "Remember everything",
     phoneLine2: "Scroll back and feel something.",
+    phoneTag: "memories · always",
   },
 ];
 
@@ -42,103 +51,141 @@ export default function StackingCards() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="how-it-works" className="relative border-t border-cream/6">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-20 sm:py-28">
+    <section id="how" className="relative border-t border-cream/6 min-h-screen flex items-center">
+      <div className="photo-section-bg" aria-hidden="true">
+        <img
+          src="/sunset-path.jpg"
+          alt=""
+          className="absolute inset-[-3%] w-[106%] h-[106%] object-cover blur-[14px] saturate-[1.08]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07050a]/70 via-[#07050a]/55 to-[#07050a]/85" />
+        <div className="absolute inset-0 bg-[#050309]" style={{ opacity: 0 }} />
+      </div>
+
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-14 py-12 sm:py-14 relative z-[1] w-full">
         <ScrollReveal>
-          <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight text-cream leading-[1.15] mb-14 sm:mb-20">
-            How it works
-            <span className="text-peach">.</span>
-          </h2>
+          <div className="mb-8 sm:mb-10 max-w-[720px]">
+            <span className="font-mono text-[10.5px] tracking-[0.12em] text-cream/40 uppercase block mb-4">
+              03 — How it works
+            </span>
+            <h2 className="text-[clamp(28px,4vw,44px)] font-medium tracking-tight text-cream leading-[1.15] mb-5">
+              Three quiet steps,{" "}
+              <span className="text-peach">no notifications, no metrics.</span>
+            </h2>
+            <p className="text-[16px] leading-relaxed text-cream/40 max-w-[540px]">
+              A camera, an archive, and a slow letter home.
+            </p>
+          </div>
         </ScrollReveal>
 
         <ScrollReveal>
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
-          <div className="flex justify-center">
-            <div className="relative w-[340px]">
-              <div className="relative rounded-[48px] border-[3px] border-cream/12 bg-[#0a090e] shadow-[0_8px_40px_rgba(0,0,0,0.5)] overflow-hidden aspect-[9/19.5]">
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[90px] h-[28px] bg-black rounded-full z-10" />
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
+            <div className="flex justify-center">
+              <div className="relative w-[260px]">
+                <div className="relative rounded-[40px] border-[3px] border-cream/12 bg-[#0a090e] shadow-[0_8px_40px_rgba(0,0,0,0.5)] overflow-hidden aspect-[9/19.5]">
+                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[70px] h-[22px] bg-black rounded-full z-10" />
 
-                <div className="absolute inset-[3px] rounded-[45px] overflow-hidden bg-[#141318]">
-                  {steps.map((step, i) => (
-                    <div
-                      key={step.number}
-                      className={`absolute inset-0 flex flex-col items-center justify-center px-10 transition-all duration-500 ${
-                        i === activeIndex
-                          ? "opacity-100 translate-y-0"
-                          : i < activeIndex
-                            ? "opacity-0 -translate-y-4"
-                            : "opacity-0 translate-y-4"
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-full border border-peach/30 flex items-center justify-center mb-6">
-                        <span className="font-mono text-[13px] text-peach/70">
-                          {step.number}
+                  <div className="absolute inset-[3px] rounded-[37px] overflow-hidden bg-[#141318]">
+                    {steps.map((step, i) => (
+                      <div
+                        key={step.number}
+                        className={`absolute inset-0 flex flex-col items-center justify-center px-10 transition-all duration-500 ${
+                          i === activeIndex
+                            ? "opacity-100 translate-y-0"
+                            : i < activeIndex
+                              ? "opacity-0 -translate-y-4"
+                              : "opacity-0 translate-y-4"
+                        }`}
+                      >
+                        <div className="w-10 h-10 rounded-full border border-peach/30 flex items-center justify-center mb-4">
+                          <span className="font-mono text-[11px] text-peach/70">
+                            {step.number}
+                          </span>
+                        </div>
+                        <p className="text-cream text-[15px] font-medium text-center mb-2">
+                          {step.phoneLine1}
+                        </p>
+                        <p className="text-cream/35 text-[12px] text-center leading-relaxed">
+                          {step.phoneLine2}
+                        </p>
+                        <span className="font-mono text-[7px] tracking-[0.16em] text-cream/25 uppercase mt-4">
+                          {step.phoneTag}
                         </span>
                       </div>
-                      <p className="text-cream text-[18px] font-medium text-center mb-3">
-                        {step.phoneLine1}
-                      </p>
-                      <p className="text-cream/35 text-[14px] text-center leading-relaxed">
-                        {step.phoneLine2}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
 
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-[120px] h-[4px] bg-cream/15 rounded-full" />
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-[120px] h-[4px] bg-cream/15 rounded-full" />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="space-y-4">
-            {steps.map((step, i) => {
-              const isActive = i === activeIndex;
-              return (
-                <div
-                  key={step.number}
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => setActiveIndex(i)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") setActiveIndex(i);
-                  }}
-                  className="w-full text-left rounded-xl p-7 sm:p-8 relative overflow-hidden transition-all duration-300 cursor-pointer border border-cream/6 hover:border-cream/12"
-                  style={{
-                    backgroundColor: isActive ? "#1e1d24" : "transparent",
-                    borderColor: isActive
-                      ? "rgba(228, 168, 144, 0.3)"
-                      : undefined,
-                    boxShadow: isActive
-                      ? "0 0 20px rgba(228, 168, 144, 0.08)"
-                      : "none",
-                  }}
-                >
-                  <span className="absolute right-6 top-2 font-light text-[96px] leading-none text-cream/[0.04] select-none pointer-events-none">
-                    {step.number}
-                  </span>
-                  <span
-                    className="font-mono text-[11px] tracking-[0.08em] uppercase transition-colors duration-300"
-                    style={{ color: isActive ? "#E4A890" : "rgba(228, 168, 144, 0.4)" }}
+            <div className="space-y-2">
+              {steps.map((step, i) => {
+                const isActive = i === activeIndex;
+                return (
+                  <motion.div
+                    key={step.number}
+                    layout
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => setActiveIndex(i)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") setActiveIndex(i);
+                    }}
+                    className="w-full text-left rounded-xl relative overflow-hidden cursor-pointer border transition-colors duration-300"
+                    style={{
+                      backgroundColor: isActive ? "#1e1d24" : "transparent",
+                      borderColor: isActive
+                        ? "rgba(228, 168, 144, 0.3)"
+                        : "rgba(242, 234, 225, 0.06)",
+                      boxShadow: isActive
+                        ? "0 0 20px rgba(228, 168, 144, 0.08)"
+                        : "none",
+                    }}
                   >
-                    Step {step.number}
-                  </span>
-                  <h3
-                    className="text-[20px] font-medium tracking-tight mt-3 mb-2 leading-snug transition-colors duration-300"
-                    style={{ color: isActive ? "#F2EAE1" : "rgba(242, 234, 225, 0.5)" }}
-                  >
-                    {step.title}
-                  </h3>
-                  <p
-                    className="text-[14px] leading-relaxed max-w-[50ch] transition-colors duration-300"
-                    style={{ color: isActive ? "rgba(242, 234, 225, 0.4)" : "rgba(242, 234, 225, 0.2)" }}
-                  >
-                    {step.description}
-                  </p>
-                </div>
-              );
-            })}
+                    <motion.div
+                      layout
+                      className="p-4 sm:p-5"
+                    >
+                      <span className="absolute right-4 top-0 font-light text-[64px] leading-none text-cream/[0.04] select-none pointer-events-none">
+                        {step.number}
+                      </span>
+                      <div className="flex items-center gap-3 mb-2">
+                        <span
+                          className="font-mono text-[10.5px] tracking-[0.12em] uppercase transition-colors duration-300"
+                          style={{ color: isActive ? "#E4A890" : "rgba(228, 168, 144, 0.4)" }}
+                        >
+                          {step.number} — {step.tag}
+                        </span>
+                      </div>
+                      <h3
+                        className="text-[16px] font-medium tracking-tight leading-snug transition-colors duration-300"
+                        style={{ color: isActive ? "#F2EAE1" : "rgba(242, 234, 225, 0.5)" }}
+                      >
+                        {step.title}
+                      </h3>
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                            className="overflow-hidden"
+                          >
+                            <p className="text-[13px] leading-relaxed text-cream/40 mt-2 max-w-[50ch]">
+                              {step.description}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
-        </div>
         </ScrollReveal>
       </div>
     </section>

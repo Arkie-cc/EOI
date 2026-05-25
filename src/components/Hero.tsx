@@ -75,18 +75,12 @@ export default function Hero() {
               ones that feel like nothing now but everything later.
             </p>
 
-            <div className="mt-10 animate-fade-in-d4 flex flex-col sm:flex-row gap-3 max-w-md">
-              <a
-                href="#about"
-                className="flex-1 bg-cream text-ink px-6 py-3 rounded-[2px] text-[13px] font-medium tracking-[-0.01em] hover:bg-peach hover:text-ink transition-colors duration-300 whitespace-nowrap text-center"
-              >
-                About Us
+            <div className="mt-10 animate-fade-in-d4 flex gap-2.5">
+              <a href="#about" className="btn-soft">
+                About us
               </a>
-              <a
-                href="#signup"
-                className="flex-1 bg-cream text-ink px-6 py-3 rounded-[2px] text-[13px] font-medium tracking-[-0.01em] hover:bg-peach hover:text-ink transition-colors duration-300 whitespace-nowrap text-center"
-              >
-                Join Us
+              <a href="#signup" className="btn-accent h-[34px] px-[18px] rounded text-[11.5px] font-medium tracking-[0.02em] whitespace-nowrap transition-all duration-200 hover:-translate-y-px">
+                Join us
               </a>
             </div>
           </div>
