@@ -76,7 +76,7 @@ export default function SignUp() {
               </p>
             </div>
           ) : (
-            <div className="flex gap-2 p-1.5 rounded-md bg-cream/6 border border-cream/8 max-w-[480px] mx-auto transition-all duration-300 focus-within:border-peach/40 focus-within:bg-cream/8">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-[480px] mx-auto">
               <input
                 type="email"
                 required
@@ -86,13 +86,13 @@ export default function SignUp() {
                   if (status === "error") setStatus("idle");
                 }}
                 placeholder="your.email@somewhere.quiet"
-                className="flex-1 h-[38px] bg-transparent border-0 outline-none text-cream text-[14px] px-3.5 placeholder:text-cream/40"
+                className="w-full sm:flex-1 h-[46px] bg-cream/6 border border-cream/10 rounded-lg outline-none text-cream text-[14px] px-4 placeholder:text-cream/40 transition-all duration-300 focus:border-peach/40 focus:bg-cream/8"
               />
               <button
                 type="button"
                 onClick={handleSubmit}
                 disabled={status === "loading"}
-                className="btn-accent h-[40px] px-6 rounded-lg text-[13px] font-medium tracking-[0.02em] whitespace-nowrap disabled:opacity-50"
+                className="btn-accent w-full sm:w-auto h-[46px] px-6 rounded-lg text-[13px] font-medium tracking-[0.02em] whitespace-nowrap disabled:opacity-50"
               >
                 {status === "loading" ? "Joining..." : "Save my seat"}
               </button>

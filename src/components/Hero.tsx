@@ -10,12 +10,12 @@ const rotatingWords = [
   "your commute to work",
   "your spot at lunch",
   "your parent's laugh",
-  "the joke your dad always made",
-  "the way your mum calls you",
-  "your friend saving you a seat",
-  "the sound of your dog barking",
-  "the way your cat purrs",
-  "the house you grew up in",
+  "your dad's jokes",
+  "your mom calling you",
+  "your friend's smile'",
+  "your dog's bark",
+  "your cat's purr",
+  "your first bedroom",
 ];
 
 export default function Hero() {
@@ -61,12 +61,9 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="animate-fade-in-d1 font-light text-[clamp(36px,6vw,86px)] leading-[1.1] tracking-[-0.04em] text-cream mb-1">
-            <div>Some day, you&apos;ll</div>
-            <div className="flex items-baseline">
-              <span className="shrink-0">miss&nbsp;</span>
-              <TextRotator words={rotatingWords} intervalMs={2000} />
-            </div>
+          <div className="animate-fade-in-d1 font-light text-[clamp(30px,6vw,86px)] sm:text-[clamp(36px,6vw,86px)] leading-[1.1] tracking-[-0.04em] text-cream mb-1">
+            Some day, you&apos;ll miss{" "}
+            <TextRotator words={rotatingWords} intervalMs={2000} />
           </div>
 
           <div className="max-w-3xl">
@@ -85,13 +82,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="relative z-10 flex justify-center pb-8">
-        <div
-          className="w-px h-10 bg-gradient-to-b from-transparent via-cream/20 to-transparent"
-          style={{ animation: "pulse-line 2.5s ease-in-out infinite" }}
-        />
       </div>
     </section>
   );

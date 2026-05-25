@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -49,6 +49,27 @@ const steps = [
 
 export default function StackingCards() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const dragStartY = useRef<number | null>(null);
+  const isDragging = useRef(false);
+
+  const onPointerDown = useCallback((e: React.PointerEvent) => {
+    dragStartY.current = e.clientY;
+    isDragging.current = true;
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+  }, []);
+
+  const onPointerUp = useCallback((e: React.PointerEvent) => {
+    if (dragStartY.current === null || !isDragging.current) return;
+    isDragging.current = false;
+    const delta = dragStartY.current - e.clientY;
+    const threshold = 30;
+    if (delta > threshold) {
+      setActiveIndex((prev) => Math.min(prev + 1, steps.length - 1));
+    } else if (delta < -threshold) {
+      setActiveIndex((prev) => Math.max(prev - 1, 0));
+    }
+    dragStartY.current = null;
+  }, []);
 
   return (
     <section id="how" className="relative border-t border-cream/6 min-h-screen flex items-center">
@@ -82,7 +103,12 @@ export default function StackingCards() {
           <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
             <div className="flex justify-center">
               <div className="relative w-[260px]">
-                <div className="relative rounded-[40px] border-[3px] border-cream/12 bg-[#0a090e] shadow-[0_8px_40px_rgba(0,0,0,0.5)] overflow-hidden aspect-[9/19.5]">
+                <div
+                  className="relative rounded-[40px] border-[3px] border-cream/12 bg-[#0a090e] shadow-[0_8px_40px_rgba(0,0,0,0.5)] overflow-hidden aspect-[9/19.5] cursor-grab active:cursor-grabbing select-none touch-none"
+                  onPointerDown={onPointerDown}
+                  onPointerUp={onPointerUp}
+                  onPointerCancel={onPointerUp}
+                >
                   <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[70px] h-[22px] bg-black rounded-full z-10" />
 
                   <div className="absolute inset-[3px] rounded-[37px] overflow-hidden bg-[#141318]">
@@ -115,7 +141,21 @@ export default function StackingCards() {
                     ))}
                   </div>
 
-                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-[120px] h-[4px] bg-cream/15 rounded-full" />
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+                    {steps.map((_, i) => (
+                      <button
+                        key={i}
+                        type="button"
+                        aria-label={`Go to step ${i + 1}`}
+                        onClick={() => setActiveIndex(i)}
+                        className={`rounded-full transition-all duration-300 ${
+                          i === activeIndex
+                            ? "w-5 h-1.5 bg-peach/70"
+                            : "w-1.5 h-1.5 bg-cream/20 hover:bg-cream/35"
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
