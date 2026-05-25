@@ -101,7 +101,7 @@ export default function StackingCards() {
 
         <ScrollReveal>
           <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
-            <div className="flex justify-center">
+            <div className="flex flex-col items-center">
               <div className="relative w-[260px]">
                 <div
                   className="relative rounded-[40px] border-[3px] border-cream/12 bg-[#0a090e] shadow-[0_8px_40px_rgba(0,0,0,0.5)] overflow-hidden aspect-[9/19.5] cursor-grab active:cursor-grabbing select-none touch-none"
@@ -158,9 +158,33 @@ export default function StackingCards() {
                   </div>
                 </div>
               </div>
+
+              {/* Mobile: step info below phone */}
+              <div className="lg:hidden mt-6 text-center max-w-[300px]">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeIndex}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <span className="font-mono text-[10.5px] tracking-[0.12em] uppercase text-peach block mb-2">
+                      {steps[activeIndex].number} — {steps[activeIndex].tag}
+                    </span>
+                    <h3 className="text-[16px] font-medium tracking-tight leading-snug text-cream mb-2">
+                      {steps[activeIndex].title}
+                    </h3>
+                    <p className="text-[13px] leading-relaxed text-cream/55">
+                      {steps[activeIndex].description}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
 
-            <div className="space-y-2">
+            {/* Desktop: step cards */}
+            <div className="hidden lg:block space-y-2">
               {steps.map((step, i) => {
                 const isActive = i === activeIndex;
                 return (
